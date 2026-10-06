@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hoja de vida · Andrés Restrepo</title>
+  <meta name="description" content="Hoja de vida de Andrés Felipe Restrepo Gómez, Desarrollador Full Stack Senior. Disponible en formato ATS y formato visual, descargable en PDF.">
+  <meta name="theme-color" content="#0b1224">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra de herramientas -->
+  <header class="toolbar">
+    <div class="toolbar__inner">
+      <div class="brand">
+        <span class="brand__mark" aria-hidden="true">&lt;/&gt;</span>
+        <span class="brand__text">Hoja de vida</span>
+      </div>
+
+      <div class="switch" id="modeSwitch" data-mode="visual" role="tablist" aria-label="Formato de la hoja de vida">
+        <span class="switch__indicator" aria-hidden="true"></span>
+        <button class="switch__btn is-active" id="tab-visual" type="button" role="tab"
+                aria-selected="true" aria-controls="cv-visual" data-mode="visual">Visual</button>
+        <button class="switch__btn" id="tab-ats" type="button" role="tab"
+                aria-selected="false" aria-controls="cv-ats" data-mode="ats" tabindex="-1">ATS</button>
+      </div>
+
+      <button class="btn-download" id="btnDownload" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span id="btnDownloadLabel">Descargar PDF Visual</span>
+      </button>
+    </div>
+  </header>
+
+  <p class="hint" id="modeHint" aria-live="polite"></p>
+
+  <!-- Hojas de vida (se generan desde script.js) -->
+  <main class="stage">
+    <article id="cv-visual" class="cv cv--visual" role="tabpanel" aria-labelledby="tab-visual"></article>
+    <article id="cv-ats" class="cv cv--ats" role="tabpanel" aria-labelledby="tab-ats" hidden></article>
+  </main>
+
+  <!-- Capa de carga durante la exportación -->
+  <div class="loader" id="loader" hidden>
+    <div class="loader__box">
+      <span class="loader__spin" aria-hidden="true"></span>
+      <span>Generando PDF…</span>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Librerías de generación de PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
