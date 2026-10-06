@@ -6,8 +6,8 @@
    ========================================================= */
 
 const CV = {
-  nombre: 'Andrés Felipe Restrepo Gómez',
-  iniciales: 'AR',
+  nombre: 'Julián David Buitrago Orozco',
+  iniciales: 'JD',
   cargo: 'Desarrollador Full Stack Senior',
   stackResumen: 'TypeScript · React · Next.js · Node.js · AWS',
   disponibilidad: 'Disponible · Remoto / Híbrido',
